@@ -56,7 +56,7 @@ export const siteConfig = {
       featured: true,
     },
     {
-      name: 'Mahendra',
+      name: 'Mahendra Ahire',
       role: 'Community Outreach & Partnerships',
       subrole: 'Local Engagement',
       initials: 'M',
@@ -64,7 +64,7 @@ export const siteConfig = {
       featured: false,
     },
     {
-      name: 'Siddhesh',
+      name: 'Siddhesh Gaikwad',
       role: 'Logistics & Food Safety',
       subrole: 'Safety Protocol',
       initials: 'S',
@@ -72,7 +72,7 @@ export const siteConfig = {
       featured: false,
     },
     {
-      name: 'Rushikesh',
+      name: 'Rushikesh Gaikwad',
       role: 'Volunteer & Field Coordination',
       subrole: 'Ground Execution',
       initials: 'R',
