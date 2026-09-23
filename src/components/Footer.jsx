@@ -1,5 +1,6 @@
 import React from 'react';
-import { Sprout, ArrowUp } from 'lucide-react';
+import { ArrowUp, MapPin, MessageSquare } from 'lucide-react';
+import { siteConfig } from '../config/siteConfig';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -12,11 +13,15 @@ export default function Footer() {
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#FAF7F2]/10">
           
-          {/* Brand Column */}
-          <div className="md:col-span-6 flex flex-col items-start">
+          {/* Brand Column with Logo */}
+          <div className="md:col-span-5 flex flex-col items-start">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-[#2D563F] text-[#84A98C] flex items-center justify-center shadow-inner">
-                <Sprout className="w-5 h-5" />
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#84A98C]/40 bg-white p-0.5 shadow-md">
+                <img
+                  src="/logo.jpeg"
+                  alt="Food Fed Official Logo"
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
               <span className="font-display font-extrabold text-2xl tracking-wider text-[#FAF7F2]">
                 FOOD FED
@@ -28,12 +33,19 @@ export default function Footer() {
             </p>
 
             <p className="text-xs text-[#FAF7F2]/70 max-w-md leading-relaxed mb-4">
-              Food Fed is a proposed Community Engagement Program (CEP) initiative exploring practical solutions to reduce food waste, feed communities, and enrich soil ecosystems.
+              Food Fed is a proposed Community Engagement Program (CEP) initiative exploring practical solutions to reduce food waste, feed communities, and enrich soil ecosystems in Nashik.
             </p>
 
-            <span className="inline-block text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-[#2D563F] text-[#84A98C] border border-[#84A98C]/30">
-              Student-led CEP initiative
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-[#2D563F] text-[#84A98C] border border-[#84A98C]/30">
+                Student-led Community Engagement Program initiative
+              </span>
+
+              <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-[#D96B43]/20 text-[#D96B43] border border-[#D96B43]/40">
+                <MapPin className="w-3 h-3 text-[#D96B43]" />
+                Currently serving Nashik
+              </span>
+            </div>
           </div>
 
           {/* Quick Navigation Links */}
@@ -63,32 +75,59 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#support" className="hover:text-[#84A98C] transition-colors">
+                  Support Food Fed
+                </a>
+              </li>
+              <li>
+                <a href="#team" className="hover:text-[#84A98C] transition-colors">
+                  Meet the Team
+                </a>
+              </li>
+              <li>
+                <a href="#feedback" className="hover:text-[#84A98C] transition-colors">
+                  Give Feedback
+                </a>
+              </li>
+              <li>
                 <a href="#volunteer" className="hover:text-[#84A98C] transition-colors">
-                  Get Involved
+                  Volunteer & Contact
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Key Principles */}
-          <div className="md:col-span-3">
+          {/* Direct WhatsApp Contact Links */}
+          <div className="md:col-span-4">
             <h4 className="font-display font-bold text-sm uppercase tracking-wider text-[#84A98C] mb-4">
-              Core Principles
+              Direct Contact (Nashik)
             </h4>
-            <ul className="space-y-2 text-xs text-[#FAF7F2]/70">
-              <li>• Edible Food Redistribution</li>
-              <li>• Rigorous Quality Checks</li>
-              <li>• Composting & Biogas Renewal</li>
-              <li>• Zero Landfill Diversion</li>
-              <li>• Community-Centric Impact</li>
-            </ul>
+            <div className="space-y-3">
+              {siteConfig.contacts.map((contact, i) => (
+                <a
+                  key={i}
+                  href={contact.waUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3 rounded-xl bg-[#1B382B] hover:bg-[#2D563F] border border-[#84A98C]/20 transition-colors group"
+                >
+                  <div>
+                    <p className="text-xs font-bold text-[#FAF7F2]">{contact.name}</p>
+                    <p className="text-[11px] text-[#84A98C]">{contact.phoneDisplay}</p>
+                  </div>
+                  <div className="w-8 h-8 rounded-lg bg-[#25D366] text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <MessageSquare className="w-4 h-4 fill-current" />
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
 
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAF7F2]/60">
-          <p>© 2026 Food Fed. Student-led CEP initiative.</p>
+          <p>© 2026 Food Fed. Student-led CEP initiative. Currently serving Nashik.</p>
           
           <button
             onClick={scrollToTop}

@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowDown, HeartHandshake, Sparkles, ShieldCheck, RefreshCw, Leaf } from 'lucide-react';
-import SafeImage from './SafeImage';
+import { ArrowDown, HeartHandshake, Sparkles, ShieldCheck, RefreshCw, Leaf, MapPin } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -15,11 +14,19 @@ export default function Hero() {
           {/* Left Column: Text & Storytelling */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
-            {/* Tagline Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E2EBE4] border border-[#84A98C]/40 text-[#1B382B] text-xs sm:text-sm font-semibold mb-6 shadow-xs animate-fade-in">
-              <span className="w-2 h-2 rounded-full bg-[#D96B43] animate-ping" />
-              <span>Proposed Community Engagement Program (CEP)</span>
-              <span className="text-[#4F5E56] font-normal">| Student-Led</span>
+            {/* Tagline & Location Pills */}
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E2EBE4] border border-[#84A98C]/40 text-[#1B382B] text-xs font-semibold shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#D96B43] animate-ping" />
+                <span>Proposed Community Engagement Program (CEP)</span>
+                <span className="text-[#4F5E56] font-normal hidden sm:inline">| Student-Led</span>
+              </div>
+
+              {/* Nashik Location Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F9EBE6] border border-[#D96B43]/30 text-[#D96B43] text-xs font-bold shadow-xs">
+                <MapPin className="w-3.5 h-3.5 text-[#D96B43]" />
+                <span>Currently Serving Nashik • Maharashtra</span>
+              </div>
             </div>
 
             {/* Main Headline */}
@@ -38,9 +45,9 @@ export default function Hero() {
               "Food shouldn't become waste before it becomes a meal."
             </p>
 
-            {/* Explanation paragraph */}
+            {/* Brief explanation paragraph */}
             <p className="text-base sm:text-lg text-[#4F5E56] leading-relaxed max-w-2xl mb-8">
-              <strong className="text-[#1B382B] font-semibold">Food Fed</strong> is a student-led CEP initiative exploring a practical way to connect surplus edible food with people who need it — while giving unavoidable organic waste a second life through composting and biogas.
+              <strong className="text-[#1B382B] font-semibold">Food Fed</strong> is a student-led CEP initiative exploring a practical way to connect surplus edible food with people who need it — while giving unavoidable organic waste a second life. Starting in <strong className="text-[#1B382B]">Nashik</strong>, we aim to build a practical community food-rescue model that can grow with local participation.
             </p>
 
             {/* CTA Buttons */}
@@ -97,61 +104,67 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Column: Editorial Visual Composition */}
+          {/* Right Column: Hero Visual Container with Actual Food Fed Poster */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Main Visual Frame with Warm Organic Border */}
-              <div className="relative rounded-[2.5rem] overflow-hidden p-3 bg-gradient-to-b from-[#F4EFE6] to-[#E2EBE4] border border-[#E8DFD1] shadow-2xl">
+              {/* Outer Card with Warm Organic Border */}
+              <div className="relative rounded-[2.5rem] p-4 sm:p-5 bg-gradient-to-b from-[#FAF7F2] to-[#F4EFE6] border-2 border-[#1B382B]/15 shadow-2xl">
                 
-                {/* Primary Food Image */}
-                <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-md">
-                  <SafeImage
-                    src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=1000&q=80"
-                    alt="Fresh organic food surplus ready for redistribution"
-                    className="w-full h-full"
-                    fallbackBg="bg-[#1B382B]"
+                {/* Header Label above Poster */}
+                <div className="flex items-center justify-between mb-3 px-2">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-widest bg-[#1B382B] text-[#FAF7F2] px-3 py-1 rounded-full shadow-xs">
+                    <Sparkles className="w-3 h-3 text-[#84A98C]" />
+                    OUR PROPOSED MODEL
+                  </span>
+                  <span className="text-[10px] font-bold text-[#D96B43] uppercase tracking-wider bg-[#F9EBE6] px-2.5 py-0.5 rounded-full border border-[#D96B43]/30">
+                    Nashik CEP
+                  </span>
+                </div>
+
+                {/* Poster Container using /poster.jpeg */}
+                <div className="relative rounded-[1.8rem] overflow-hidden bg-white border border-[#E8DFD1] shadow-inner group flex items-center justify-center p-2">
+                  <img
+                    src="/poster.jpeg"
+                    alt="Food Fed Official Proposed Model Poster"
+                    className="w-full h-auto object-contain rounded-xl max-h-[520px] transition-transform duration-300 group-hover:scale-[1.01]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1B382B]/80 via-transparent to-transparent" />
-                  
-                  {/* Overlay Image Caption */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-wider bg-[#D96B43] px-2.5 py-1 rounded-full mb-2">
-                      CEP Vision Model
-                    </span>
-                    <h3 className="font-display font-bold text-xl text-[#FAF7F2]">
-                      Community Food Redistribution
-                    </h3>
-                    <p className="text-xs text-white/80 mt-1">
-                      Connecting excess edible meals to neighborhoods while turning unconsumable food into rich compost.
-                    </p>
-                  </div>
+                </div>
+
+                {/* Subtle Subtitle below Poster */}
+                <div className="mt-3 pt-3 border-t border-[#E8DFD1] text-center">
+                  <p className="text-xs font-bold text-[#1B382B]">
+                    "One food system. Two responsible pathways."
+                  </p>
+                  <p className="text-[11px] text-[#4F5E56] mt-0.5">
+                    Connecting surplus food to people & organic waste to earth.
+                  </p>
                 </div>
 
               </div>
 
-              {/* Floating Card 1: Food Rescue Badge */}
-              <div className="absolute -top-6 -left-6 sm:-left-8 bg-[#FAF7F2] p-4 rounded-2xl border border-[#E8DFD1] shadow-xl max-w-[200px] animate-float hidden sm:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#1B382B] text-[#FAF7F2] flex items-center justify-center shrink-0">
-                    <Sparkles className="w-5 h-5 text-[#84A98C]" />
+              {/* Floating Badge 1: Zero Food Waste */}
+              <div className="absolute -top-5 -left-5 bg-[#FAF7F2] p-3.5 rounded-2xl border border-[#E8DFD1] shadow-xl max-w-[190px] animate-float hidden sm:block">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-[#1B382B] text-[#FAF7F2] flex items-center justify-center shrink-0">
+                    <Sparkles className="w-4 h-4 text-[#84A98C]" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#1B382B]">Official Poster</p>
+                    <p className="text-[10px] text-[#4F5E56]">CEP Framework</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Badge 2: Soil Renewal */}
+              <div className="absolute -bottom-5 -right-5 bg-[#FAF7F2] p-3.5 rounded-2xl border border-[#E8DFD1] shadow-xl max-w-[210px] hidden sm:block">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-[#D96B43] text-white flex items-center justify-center shrink-0">
+                    <Leaf className="w-4 h-4" />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-[#1B382B]">Zero Food Waste</p>
-                    <p className="text-[11px] text-[#4F5E56]">Every morsel counts</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Card 2: Soil Renewal Badge */}
-              <div className="absolute -bottom-6 -right-6 sm:-right-8 bg-[#FAF7F2] p-4 rounded-2xl border border-[#E8DFD1] shadow-xl max-w-[220px] hidden sm:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#D96B43] text-white flex items-center justify-center shrink-0">
-                    <Leaf className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-[#1B382B]">Waste to Biogas & Soil</p>
-                    <p className="text-[11px] text-[#4F5E56]">Organic loop closed</p>
+                    <p className="text-[10px] text-[#4F5E56]">Organic loop closed</p>
                   </div>
                 </div>
               </div>

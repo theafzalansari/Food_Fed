@@ -6,58 +6,62 @@ export default function HowItWorksSection() {
     {
       num: '01',
       title: 'Discover',
-      desc: 'Identify surplus food from homes, restaurants, events and canteens.',
+      desc: 'Identify surplus food from homes, restaurants, events and canteens across Nashik.',
       icon: Compass,
-      color: 'bg-[#1B382B] text-[#FAF7F2]',
-      accent: 'border-t-4 border-t-[#84A98C]',
+      bgStyle: 'bg-[#12281D] text-[#FAF7F2] border border-[#84A98C]/30',
       iconBg: 'bg-[#2D563F] text-[#84A98C]',
+      numBadge: 'bg-[#84A98C]/20 text-[#84A98C]',
     },
     {
       num: '02',
       title: 'Check',
-      desc: 'Assess whether the food is suitable and safe for redistribution.',
+      desc: 'Assess whether the food is suitable and safe for redistribution through quality triage.',
       icon: ShieldCheck,
-      color: 'bg-[#2D563F] text-[#FAF7F2]',
-      accent: 'border-t-4 border-t-[#FAF7F2]',
-      iconBg: 'bg-[#1B382B] text-[#FAF7F2]',
+      bgStyle: 'bg-[#12281D] text-[#FAF7F2] border border-[#84A98C]/30',
+      iconBg: 'bg-[#84A98C] text-[#1B382B]',
+      numBadge: 'bg-[#84A98C]/20 text-[#84A98C]',
     },
     {
       num: '03',
       title: 'Redirect',
-      desc: 'Safe food goes toward people/community partners who need it.',
+      bgStyle: 'bg-[#12281D] text-[#FAF7F2] border border-[#D96B43]/40',
+      desc: 'Safe food goes toward people and community partners who need standard meals.',
       icon: HeartHandshake,
-      color: 'bg-[#FAF7F2] text-[#1C2621]',
-      accent: 'border-t-4 border-t-[#D96B43]',
-      iconBg: 'bg-[#F9EBE6] text-[#D96B43]',
+      iconBg: 'bg-[#D96B43] text-white',
+      numBadge: 'bg-[#D96B43]/20 text-[#D96B43]',
     },
     {
       num: '04',
       title: 'Renew',
-      desc: 'Unavoidable organic waste can be directed toward appropriate composting, biogas or other organic-waste processing.',
+      bgStyle: 'bg-[#12281D] text-[#FAF7F2] border border-[#84A98C]/30',
+      desc: 'Unavoidable organic waste is directed toward local composting, biogas or organic processing.',
       icon: Sprout,
-      color: 'bg-[#1B382B] text-[#FAF7F2]',
-      accent: 'border-t-4 border-t-[#D96B43]',
-      iconBg: 'bg-[#D96B43] text-white',
+      iconBg: 'bg-[#2D563F] text-[#84A98C]',
+      numBadge: 'bg-[#84A98C]/20 text-[#84A98C]',
     },
   ];
 
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-[#F4EFE6] border-b border-[#E8DFD1] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="py-24 md:py-32 bg-[#1B382B] text-[#FAF7F2] relative overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#84A98C]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#D96B43]/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-[#84A98C]/20 pb-8">
           <div>
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-[#E2EBE4] text-[#1B382B] mb-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-[#2D563F] text-[#84A98C] border border-[#84A98C]/30 mb-4">
               Simple 4-Step Process
             </span>
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#1B382B] tracking-tight">
+            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#FAF7F2] tracking-tight">
               How Food Fed Works
             </h2>
           </div>
 
-          <p className="text-base text-[#4F5E56] max-w-md">
-            Our proposed operational pipeline balances safety, speed, and environmental stewardship to create a seamless surplus transition.
+          <p className="text-base text-[#FAF7F2]/80 max-w-md leading-relaxed">
+            Our proposed operational pipeline balances safety, speed, and environmental stewardship to create a seamless surplus transition in Nashik.
           </p>
         </div>
 
@@ -68,13 +72,13 @@ export default function HowItWorksSection() {
             return (
               <div
                 key={idx}
-                className={`rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group ${step.color} ${step.accent} relative overflow-hidden`}
+                className={`rounded-3xl p-7 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group ${step.bgStyle} relative overflow-hidden hover:-translate-y-1`}
               >
                 <div>
-                  {/* Step Number Badge */}
+                  {/* Step Number & Icon Header */}
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-display font-black text-3xl opacity-40 tracking-wider">
-                      {step.num}
+                    <span className={`font-display font-extrabold text-xs px-3 py-1 rounded-full tracking-wider ${step.numBadge}`}>
+                      STEP {step.num}
                     </span>
                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${step.iconBg} shadow-xs group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className="w-6 h-6" />
@@ -82,18 +86,18 @@ export default function HowItWorksSection() {
                   </div>
 
                   {/* Step Title & Subtitle */}
-                  <h3 className="font-display font-extrabold text-2xl mb-3 tracking-tight">
+                  <h3 className="font-display font-extrabold text-2xl text-[#FAF7F2] mb-3 tracking-tight">
                     {step.num} — {step.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed opacity-85">
+                  <p className="text-sm leading-relaxed text-[#FAF7F2]/85">
                     {step.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-current/10 flex items-center justify-between text-xs font-semibold opacity-70">
-                  <span>Step {idx + 1} of 4</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <div className="pt-6 mt-6 border-t border-[#84A98C]/20 flex items-center justify-between text-xs font-semibold text-[#84A98C]">
+                  <span>Phase {idx + 1} of 4</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#D96B43]" />
                 </div>
               </div>
             );
