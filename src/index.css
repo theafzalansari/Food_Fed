@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  --color-forest-dark: #12281D;
+  --color-forest: #1B382B;
+  --color-forest-medium: #2D563F;
+  --color-forest-light: #447256;
+  --color-sage: #84A98C;
+  --color-sage-light: #E2EBE4;
+  
+  --color-cream: #FAF7F2;
+  --color-cream-card: #F4EFE6;
+  --color-cream-border: #E8DFD1;
+  
+  --color-terracotta: #D96B43;
+  --color-terracotta-hover: #C55730;
+  --color-terracotta-light: #F9EBE6;
+  
+  --color-charcoal: #1C2621;
+  --color-charcoal-muted: #4F5E56;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #FAF7F2;
+    color: #1C2621;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4D3C8;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2D563F;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 35s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-flow-line {
+  stroke-dasharray: 8 6;
+  animation: dashFlow 2s linear infinite;
+}
+
+/* Glassmorphism & Cards */
+.glass-nav {
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(232, 223, 209, 0.8);
+}
+
+.grain-overlay {
+  background-image: radial-gradient(rgba(27, 56, 43, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
